@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import bibtex
 import unittest
-class TestAuthorExtract(unittest.TestCase):
 
+
+class TestAuthorExtract(unittest.TestCase):
     def setUp(self):
         self.simple_author_1 = "Smith"
         self.simple_author_2 = "Jones"
@@ -15,15 +16,15 @@ class TestAuthorExtract(unittest.TestCase):
 
     def test_author_1(self):
         (Surname, FirstNames) = bibtex.extract_author(self.simple_author_1)
-        self.assertEqual((Surname, FirstNames), ('Smith'','''))
+        self.assertEqual((Surname, FirstNames), ('Smith', ''))
         (Surname, FirstNames) = bibtex.extract_author(self.simple_author_2)
-        self.assertEqual((Surname, FirstNames), ('Jones',''))
+        self.assertEqual((Surname, FirstNames), ('Jones', ''))
 
     def test_author_2(self):
         (Surname, First) = bibtex.extract_author(self.author_1)
-        self.assertEqual((Surname,First) , ("Smith", "John"))
+        self.assertEqual((Surname, First), ("Smith", "John"))
         (Surname, First) = bibtex.extract_author(self.author_2)
-        self.assertEqual((Surname,First) , ("Jones", "Bob"))
+        self.assertEqual((Surname, First), ("Jones", "Bob"))
 
     def test_author_3(self):
         (Surname, First) = bibtex.extract_author(self.author_3)
@@ -37,7 +38,9 @@ class TestAuthorExtract(unittest.TestCase):
 
     def test_multiple_authors(self):
         Authors = bibtex.extract_authors(self.multilple_authors_1)
-        self.assertEqual(Authors[0] , ('Pearson','Justin'))
+        self.assertEqual(Authors[0], ('Pearson', 'Justin'))
         self.assertEqual(Authors[1], ('Jones', 'Bob'))
+
+
 if __name__ == '__main__':
     unittest.main()
